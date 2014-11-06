@@ -26,9 +26,13 @@ information about the computations, see :ref:`Reference`.
 Daily Student Enrollment Chart
 ======================================
 
-Each marker on this chart represents the total number of enrolled learners on a
-particular date. Moving your cursor over the chart shows a tool tip with the
-enrollment count for each day.
+The daily student enrollment chart is a stacked area chart: the filled area
+represents the total number of enrolled learners on a particular date. For
+courses that offer more than one type of certificate, different colors
+represent the number of students who have opted for an honor certificate, a
+verified certificate, or who are enrolled through a professional education
+program. Moving your cursor over the chart shows a tool tip with the enrollment
+count for each day.
 
 The chart includes enrollment data for every day, beginning with the automated
 enrollment of the course creator when the course was created in Studio. This
@@ -46,6 +50,8 @@ was created in Studio.
 
 .. ColumbiaX/HIST1.1x/3T2014/enrollment/activity/
 
+.. need to review on stage to check for different colors in stacked area
+
 The chart does reveal several periods when the rate of new enrollments
 increased rapidly, or "spiked" (circled). The team for this course might have
 the contextual knowledge to correlate those periods with marketing efforts or
@@ -62,6 +68,8 @@ Dashboard to autoenroll all of the students.
        an increase from just over 0 to over 700 students in a two week period.
 
 .. IMFx/OL14.01/2T2014/enrollment/activity/
+
+.. need to review on stage to check for different colors in stacked area
 
 See the :ref:`Reference` for a detailed description of how enrollment values
 are determined.
@@ -81,6 +89,21 @@ This metric reports the difference between the enrollment total at the
 end of the day yesterday and at the end of the day one week ago.
 
 ======================================
+Verified Enrollment Metric
+======================================
+  
+This count reports the total number of enrolled students who have elected to
+pursue a verified certificate for the course. 
+
+======================================================
+Change in Verified Enrollments Last Week Metric
+======================================================
+  
+This metric reports the difference between the number of enrolled students who
+are in the verified certificate track as of the end of the day yesterday and at
+the end of the day one week ago.
+
+======================================
 Enrollment Over Time Report 
 ======================================
 
@@ -88,13 +111,24 @@ The daily total enrollment count, through the date of the last update, is
 available for review or download. Columns show each **Date** and its **Total
 Enrollment**.
 
+The report includes additional columns for courses that offer certification
+options or enrollment tracks in addition to the honor certificate audit track.
+For courses with multiple enrollment tracks, the report includes the **Verified
+Enrollment** or **Professional Enrollment** column, or both. The report also
+includes the **Honor Code Enrollment** column for the count of enrolled
+students who did not elect one of those options.
+
 To download the Enrollment Over Time report in a comma-separated value file,
 click **Download CSV**. The CSV file contains the following columns: 
 
-* count
+* audit
+* count (total enrollment)
 * course_id
 * created (the date and time of the computation)
 * date
+* honor
+* professional
+* verified
 
 .. info on why you might want to download, what to do with csv after
 

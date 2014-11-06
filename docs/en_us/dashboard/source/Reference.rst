@@ -90,14 +90,45 @@ For information about viewing enrollment activity data in edX Insights, see
 
 **Enrollment Over Time chart**
   
-* The markers on the chart represent the number of users enrolled in the
-  course each day.
+* This chart is a stacked area chart. The filled area represents the total
+  number of users enrolled in the course each day.
 
-* The x-axis shows dates from course creation through the end of
-  the last update period.
+* The x-axis shows dates from course creation through the end of the last
+  update period.
 
-* The y-axis shows the number of enrolled users.
+* The y-axis shows the total number of enrolled users. 
+
+* For courses that offer more than one enrollment option or certification
+  track, different colors represent the contribution of each track to the
+  enrollment total.
+
+  Courses can offer students a verified certificate option, or enroll students
+  through a professional education program, in addition to offering honor code
+  certificates.
+
+**Enrollment Over Time report**
+
+* This report includes columns for **Date** and **Total Enrollment**.
+
+ * If a course offers students the option to pursue a verified certificate, the
+   report also includes columns for **Verified Enrollment** and **Honor Code
+   Enrollment**.
   
+ * If a course enrolls students through a professional education program, the
+   report also includes columns for **Professional Enrollment** and **Honor
+   Code Enrollment**.
+
+* Each enrolled student is included in one, and only one, of the possible
+  enrollment tracks for a course.
+
+* The **Honor Code Enrollment** column reports the sum of the students who
+  chose an audit option and students who chose an honor code certificate option
+  for the course. At one time, a distinction was made between these two
+  certification tracks, although most courses offered only one of them.
+
+  The downloadable CSV file separates the "audit" and "honor" enrollment
+  counts.
+
 .. _Demographic Computations:
 
 *********************************
