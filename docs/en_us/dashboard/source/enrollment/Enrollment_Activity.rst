@@ -47,7 +47,7 @@ data is also available for review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
 example, you see the enrollment climb fairly steadily over a period of five
-months for a MOOC. The markers begin with 2 "student" enrollments (almost
+months for a MOOC. The markers begin with two "student" enrollments (almost
 certainly the course creator and another staff member) on the day the course
 was created in Studio.
 
