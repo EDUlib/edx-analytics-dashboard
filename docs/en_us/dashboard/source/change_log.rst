@@ -12,6 +12,9 @@ September, 2014
 
    * - Date
      - Change
+   * - 11/12/14
+     - Enrollment history is now available for all courses. Updates made to
+       :ref:`Enrollment_Activity` and :ref:`Reference`.
    * - 11/05/14
      - Added :ref:`Enrollment_Demographics`.
    * - 09/30/14
