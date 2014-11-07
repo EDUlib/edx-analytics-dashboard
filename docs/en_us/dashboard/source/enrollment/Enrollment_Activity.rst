@@ -28,20 +28,28 @@ Daily Student Enrollment Chart
 
 The daily student enrollment chart is a stacked area chart: the filled area
 represents the total number of enrolled learners on a particular date. For
-courses that offer more than one type of certificate, different colors
-represent the number of students who have opted for an honor certificate, a
-verified certificate, or who are enrolled through a professional education
-program. Moving your cursor over the chart shows a tool tip with the enrollment
-count for each day.
+courses that offer more than one enrollment option or track, different colors
+represent the number of students who are enrolled with each option. 
+
+The chart currently includes these enrollment options and tracks, if they are
+offered for your course.
+
+* Honor certificate 
+* Verified certificate
+* Professional education program (edx.org courses only) 
+  
+Moving your cursor over the chart shows a tool tip with the counts for each
+enrollment type, and the total enrollment, for each day.
 
 The chart includes enrollment data for every day, beginning with the automated
 enrollment of the course creator when the course was created in Studio. This
 data is also available for review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
-example, you see the enrollment climb fairly steadily over a period of five months for a MOOC. The markers begin with 2 "student" enrollments (almost
+example, you see the enrollment climb fairly steadily over a period of five
+months for a MOOC. The markers begin with 2 "student" enrollments (almost
 certainly the course creator and another staff member) on the day the course
-was created in Studio. 
+was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
  :alt: The Daily Student Enrollment chart for nearly six months. The periods
@@ -121,7 +129,6 @@ students who did not elect one of those options.
 To download the Enrollment Over Time report in a comma-separated value file,
 click **Download CSV**. The CSV file contains the following columns: 
 
-* audit
 * count (total enrollment)
 * course_id
 * created (the date and time of the computation)

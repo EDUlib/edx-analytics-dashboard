@@ -99,12 +99,16 @@ For information about viewing enrollment activity data in edX Insights, see
 * The y-axis shows the total number of enrolled users. 
 
 * For courses that offer more than one enrollment option or certification
-  track, different colors represent the contribution of each track to the
-  enrollment total.
+  track, different colors in the filled area represent the contribution of each
+  option and track to the enrollment total.
 
-  Courses can offer students a verified certificate option, or enroll students
-  through a professional education program, in addition to offering honor code
-  certificates.
+  In addition to honor code certificates, courses can offer a verified
+  certificate option. Courses on the edx.org site can enroll students through a
+  professional education program.
+
+* Each enrolled student is included in one, and only one, of the possible
+  enrollment tracks on a given date. The student's enrollment track as of 23:59
+  UTC is used each day.
 
 **Enrollment Over Time report**
 
@@ -114,20 +118,18 @@ For information about viewing enrollment activity data in edX Insights, see
    report also includes columns for **Verified Enrollment** and **Honor Code
    Enrollment**.
   
- * If a course enrolls students through a professional education program, the
-   report also includes columns for **Professional Enrollment** and **Honor
-   Code Enrollment**.
+ * If a course on edx.org enrolls students through a professional education
+   program, the report also includes columns for **Professional Enrollment**
+   and **Honor Code Enrollment**.
 
-* Each enrolled student is included in one, and only one, of the possible
-  enrollment tracks for a course.
+* The **Honor Code Enrollment** column reports the count of students who opted
+  to receive an honor code certificate for the course.
 
-* The **Honor Code Enrollment** column reports the sum of the students who
-  chose an audit option and students who chose an honor code certificate option
-  for the course. At one time, a distinction was made between these two
-  certification tracks, although most courses offered only one of them.
-
-  The downloadable CSV file separates the "audit" and "honor" enrollment
-  counts.
+  At one time, the edx.org site offered students options to "audit" the course
+  only, or to audit the course and then receive an "honor" certificate when a
+  passing grade was achieved. For courses that ran at that time, the **Honor
+  Code Enrollment** column reports the sum of the students with these
+  enrollment options.
 
 .. _Demographic Computations:
 
