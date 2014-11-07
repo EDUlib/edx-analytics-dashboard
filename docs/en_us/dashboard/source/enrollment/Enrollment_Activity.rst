@@ -41,9 +41,9 @@ offered for your course.
 Moving your cursor over the chart shows a tool tip with the counts for each
 enrollment type, and the total enrollment, for each day.
 
-The chart includes enrollment data for every day, beginning with the automated
-enrollment of the course creator when the course was created in Studio. This
-data is also available for review in tabular format and can be downloaded.
+The chart includes enrollment data for every day, beginning with the first
+enrollment (typically of the course creator). This data is also available for
+review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
 example, you see the enrollment climb fairly steadily over a period of five
