@@ -224,6 +224,7 @@ LOCAL_APPS = (
     'courses',
     'django_rjs',
     'help',
+    'course_api',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -399,3 +400,8 @@ with open(join(DOCS_ROOT, "config.ini")) as config_file:
     DOCS_CONFIG = ConfigParser.ConfigParser()
     DOCS_CONFIG.readfp(config_file)
 ########## END DOCS/HELP CONFIGURATION
+
+########## COURSE API
+COURSE_API_URL = None
+COURSE_API_KEY = None
+########## END COURSE API

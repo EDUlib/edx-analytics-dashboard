@@ -19,6 +19,7 @@ from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 from waffle import switch_is_active
+from course_api.api import Course
 
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
@@ -29,6 +30,16 @@ from help.views import ContextSensitiveHelpMixin
 
 
 logger = logging.getLogger(__name__)
+
+
+class CourseAPIMixin(object):
+    course_api = None
+    course_api_enabled = False
+
+    def dispatch(self, request, *args, **kwargs):
+        self.course_api_enabled = switch_is_active('enable_course_api')
+        self.course_api = Course(url=settings.COURSE_API_URL, key=settings.COURSE_API_KEY)
+        return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
 
 class TrackedViewMixin(object):
@@ -52,7 +63,6 @@ class TrackedViewMixin(object):
 
 
 class LazyEncoderMixin(object):
-
     def get_page_data(self, context):
         """ Returns JSON serialized data with lazy translations converted. """
         if 'js_data' in context:
@@ -61,7 +71,7 @@ class LazyEncoderMixin(object):
             return None
 
 
-class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
+class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
     """
     Adds default course context data.
 
@@ -105,8 +115,12 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
             'course_id': self.course_id,
             'course_key': self.course_key,
             'page_title': self.page_title,
-            'page_subtitle': self.page_subtitle
+            'page_subtitle': self.page_subtitle,
+            'course_api_enabled': self.course_api_enabled,
         }
+
+        if self.course_api_enabled:
+            context['course_name'] = self.course_api.course_detail(self.course_id)['name']
 
         return context
 
@@ -655,7 +669,7 @@ class CourseHome(LoginRequiredMixin, RedirectView):
         return reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
 
 
-class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
+class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
     page_name = 'course_index'
 
@@ -668,7 +682,22 @@ class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, Templa
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        context['courses'] = sorted(courses)
+        courses = sorted(courses)
+        context['courses'] = self.get_course_info(courses)
         context['page_data'] = self.get_page_data(context)
 
         return context
+
+    def get_course_info(self, course_ids):
+        info = []
+        api = self.course_api
+
+        for course_id in course_ids:
+            d = {'id': course_id}
+
+            if self.course_api_enabled:
+                d['name'] = api.course_detail(course_id)['name']
+
+            info.append(d)
+
+        return info
